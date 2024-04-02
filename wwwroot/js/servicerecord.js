@@ -6,6 +6,7 @@
             initDatePicker($('#serviceRecordDate'));
             initTagSelector($("#serviceRecordTag"));
             $('#serviceRecordModal').modal('show');
+            bindModalInputChanges('serviceRecordModal');
         }
     });
 }
@@ -17,6 +18,7 @@ function showEditServiceRecordModal(serviceRecordId) {
             initDatePicker($('#serviceRecordDate'));
             initTagSelector($("#serviceRecordTag"));
             $('#serviceRecordModal').modal('show');
+            bindModalInputChanges('serviceRecordModal');
             $('#serviceRecordModal').off('shown.bs.modal').on('shown.bs.modal', function () {
                 if (getGlobalConfig().useMarkDown) {
                     toggleMarkDownOverlay("serviceRecordNotes");

@@ -131,6 +131,7 @@
     var selectedSupplies = [];
     var recurringReminderRecordId = [];
     var copySuppliesAttachments = false;
+    var modalChanged = false;
     getUploadedFilesFromModel();
     function getUploadedFilesFromModel() {
     @foreach (UploadedFiles filesUploaded in Model.Files)

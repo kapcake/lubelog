@@ -1032,3 +1032,29 @@ function copyToClipboard(e) {
 function noPropagation() {
     event.stopPropagation();
 }
+function bindModalInputChanges(modalName) {
+    var initialModalState = JSON.stringify($(`#${modalName} input`).map((index, elem) => $(elem).val()).toArray());
+    $(`#${modalName}`).off('hidden.bs.modal').on('hidden.bs.modal', function (e) {
+        if (e.namespace == 'bs.modal' && $(".modal.fade.show").length == 0) {
+            var currentModalState = JSON.stringify($(`#${modalName} input`).map((index, elem) => $(elem).val()).toArray());
+            if (modalChanged != undefined) {
+                modalChanged = currentModalState != initialModalState;
+            }
+            if (modalChanged) {
+                //ask for confirmation to close
+                Swal.fire({
+                    title: "You've made changes to this Record",
+                    text: "Are you sure you want to exit without saving?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Exit",
+                    confirmButtonColor: "#dc3545"
+                }).then((result) => {
+                    if (!result.isConfirmed) {
+                        $(`#${modalName}`).modal('show');
+                    }
+                });
+            }
+        }
+    });
+}

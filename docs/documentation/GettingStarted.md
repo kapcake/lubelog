@@ -40,7 +40,7 @@ By default the app will start listening at localhost:8080, this port can be conf
 ## Windows Standalone Executable
 Windows Standalone Executables(EXE) are provided, and can be found under assets for the [latest release](https://github.com/hargata/lubelog/releases/latest)
 
-![](/Getting%20Started/a/image-1708657703682.png)
+![](/assets/image-1708657703682.png)
 
 To run the server, you just have to download the zip archive attached to the release, usually named LubeLogger_vNNN_win_x64.zip, extract the archive and double click on CarCareTracker.exe
 
